@@ -4413,10 +4413,7 @@ span.fill {
     left: 0;
     height: 100%;
     width: 100%;
-    background: url(../images/service/s-box-bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: rgba(16, 16, 16, 0.78);
     z-index: -1;
     transition: .9s;
     transform: scale(0);
