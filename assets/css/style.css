@@ -8,6 +8,18 @@ Text Domain: Arcke
 Tags:       architect, architecture, architecture design, architecture portfolio, architecture studio, clean, furniture store, gallery, interior decoration, interior design, interior design portfolio, interior designer, modern, property
 ================================================*/
 
+/* === ASDS email — render 2px smaller and allow it to break on long addresses === */
+.email-text {
+    font-size: calc(1em - 2px);
+    color: inherit;
+    text-decoration: none;
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+    letter-spacing: -0.2px;
+}
+.email-text:hover { text-decoration: underline; }
+
 /* === ASDS logo size guard (prevents SVG overflow into menu/header) === */
 .logo a img,
 .logo .logo_img img,
