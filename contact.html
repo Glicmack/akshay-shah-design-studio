@@ -261,13 +261,17 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="form_box">
-											<select name="service" required style="width:100%;height:55px;padding:0 18px;border:1px solid #e0e0e0;background:#fff;color:#555;">
+											<select id="quote-service-select" name="service" required style="width:100%;height:55px;padding:0 18px;border:1px solid #e0e0e0;background:#fff;color:#555;">
 												<option value="">Select Service</option>
 												<option>Architecture Design</option>
 												<option>Interior Design</option>
 												<option>Furniture Design</option>
 												<option>3D Modelling</option>
-												<option>Urban Design</option>
+												<option>2D Plans</option>
+												<option>3D Model</option>
+												<option>Elevation</option>
+												<option>AutoCAD &amp; SketchUp Training School</option>
+												<option>Interior Design Certified Course</option>
 												<option>Other</option>
 											</select>
 										</div>
@@ -326,16 +330,44 @@
 		</div>
 	</div>
 	<script>
-		// Show success message if redirected back after submission
 		(function(){
-			if (location.search.indexOf('quote=sent') !== -1) {
+			var params = new URLSearchParams(location.search);
+
+			// 1) Success banner after FormSubmit redirect
+			if (params.get('quote') === 'sent') {
 				var s = document.getElementById('quote-status');
 				if (s) {
-					s.innerHTML = '<div style="margin-top:20px;padding:14px 20px;background:#e8f5e9;border-left:4px solid #2e7d32;color:#2e7d32;">✓ Thank you! Your quote request has been received. We\'ll get back within 24–48 hours.</div>';
+					s.innerHTML = '<div style="margin-top:20px;padding:14px 20px;background:#e8f5e9;border-left:4px solid #2e7d32;color:#2e7d32;">&#10003; Thank you! Your quote request has been received. We will get back within 24-48 hours.</div>';
 				}
-				// Scroll to the quote section
+			}
+
+			// 2) Pre-fill the service dropdown from ?service=... (used by pricing-card "Get a Quote" buttons)
+			var svcParam = params.get('service');
+			var sel = document.getElementById('quote-service-select');
+			if (svcParam && sel) {
+				var wanted = svcParam.replace(/\+/g, ' ').trim().toLowerCase();
+				var matched = false;
+				for (var i = 0; i < sel.options.length; i++) {
+					if (sel.options[i].value.toLowerCase() === wanted ||
+						sel.options[i].text.toLowerCase() === wanted) {
+						sel.selectedIndex = i;
+						matched = true;
+						break;
+					}
+				}
+				// If the param doesn't match any option, add a temporary one
+				if (!matched) {
+					var opt = document.createElement('option');
+					opt.text = svcParam.replace(/\+/g, ' ');
+					opt.selected = true;
+					sel.add(opt);
+				}
+			}
+
+			// 3) Scroll to #quote when the URL has either #quote, ?service=..., or ?quote=sent
+			if (location.hash === '#quote' || svcParam || params.get('quote') === 'sent') {
 				var q = document.getElementById('quote');
-				if (q) q.scrollIntoView({behavior:'smooth', block:'start'});
+				if (q) setTimeout(function(){ q.scrollIntoView({behavior:'smooth', block:'start'}); }, 100);
 			}
 		})();
 	</script>
