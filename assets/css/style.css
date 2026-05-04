@@ -8,17 +8,46 @@ Text Domain: Arcke
 Tags:       architect, architecture, architecture design, architecture portfolio, architecture studio, clean, furniture store, gallery, interior decoration, interior design, interior design portfolio, interior designer, modern, property
 ================================================*/
 
-/* === ASDS email — render 2px smaller and allow it to break on long addresses === */
-.email-text {
-    font-size: calc(1em - 2px);
+/* === ASDS email — smaller font + no color/underline change ===
+   Inherits parent color completely so hover/visited never recolor it. */
+.email-text,
+.email-text:link,
+.email-text:visited,
+.email-text:hover,
+.email-text:active,
+.email-text:focus {
+    font-size: 12px;
     color: inherit;
     text-decoration: none;
     word-break: break-all;
     overflow-wrap: anywhere;
     line-height: 1.4;
     letter-spacing: -0.2px;
+    vertical-align: middle;
 }
-.email-text:hover { text-decoration: underline; }
+
+/* Sidebar widget contact list: keep wrapped email text aligned next to
+   the envelope icon instead of dropping under it. */
+ul.list-style-one li {
+    display: flex !important;
+    align-items: flex-start;
+    overflow: visible !important;
+}
+ul.list-style-one li i {
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+/* Footer "Get In Touch" list — same indent fix. */
+.widgets-company-icon-list ul li {
+    display: flex;
+    align-items: flex-start;
+}
+.widgets-company-icon-list ul li i {
+    flex-shrink: 0;
+    margin-top: 4px;
+    margin-right: 8px;
+}
 
 /* === ASDS logo size guard (prevents SVG overflow into menu/header) === */
 .logo a img,
