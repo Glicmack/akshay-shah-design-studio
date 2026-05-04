@@ -59,30 +59,39 @@ ul.list-style-one > li > i {
 .widgets-company-info-box .elaction-logo img {
     width: auto;
     height: auto;
-    max-width: 90px;
-    max-height: 70px;
+    max-width: 160px !important;
+    max-height: 110px !important;
     display: inline-block;
     vertical-align: middle;
     object-fit: contain;
 }
-/* Footer logo can be a touch larger */
+/* Header column needs more vertical room for the bigger logo */
+.hendre_nav_manu .logo,
+.hendre_nav_manu .logo a {
+    line-height: 1 !important;
+}
+.hendre_nav_manu {
+    min-height: 110px;
+}
+/* Footer logo — bigger still */
 .elaction-logo img,
 .widgets-company-info-box .elaction-logo img {
-    max-width: 110px;
-    max-height: 90px;
+    max-width: 180px !important;
+    max-height: 140px !important;
 }
-/* Sidebar slide-out logo — bigger since panel is roomy */
+/* Sidebar slide-out logo */
 .nav-logo img {
-    max-width: 130px;
-    max-height: 110px;
+    max-width: 180px !important;
+    max-height: 160px !important;
 }
 @media (max-width: 991px) {
     .logo a img,
     .logo .logo_img img,
     .logo .main_sticky img {
-        max-width: 70px;
-        max-height: 56px;
+        max-width: 110px !important;
+        max-height: 80px !important;
     }
+    .hendre_nav_manu { min-height: 80px; }
 }
     
 /*TABLE OF CONTENTS*/
