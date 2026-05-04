@@ -50,26 +50,38 @@ ul.list-style-one > li > i {
     margin-top: 4px !important;
 }
 
-/* === ASDS logo size guard (prevents SVG overflow into menu/header) === */
+/* === ASDS logo size guard (square PNG logo — 1:1 aspect) === */
 .logo a img,
 .logo .logo_img img,
 .logo .main_sticky img,
 .nav-logo img,
 .elaction-logo img,
 .widgets-company-info-box .elaction-logo img {
-    max-width: 180px;
     width: auto;
     height: auto;
-    max-height: 56px;
+    max-width: 90px;
+    max-height: 70px;
     display: inline-block;
     vertical-align: middle;
+    object-fit: contain;
+}
+/* Footer logo can be a touch larger */
+.elaction-logo img,
+.widgets-company-info-box .elaction-logo img {
+    max-width: 110px;
+    max-height: 90px;
+}
+/* Sidebar slide-out logo — bigger since panel is roomy */
+.nav-logo img {
+    max-width: 130px;
+    max-height: 110px;
 }
 @media (max-width: 991px) {
     .logo a img,
     .logo .logo_img img,
     .logo .main_sticky img {
-        max-width: 150px;
-        max-height: 48px;
+        max-width: 70px;
+        max-height: 56px;
     }
 }
     
