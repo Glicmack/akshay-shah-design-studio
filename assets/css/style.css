@@ -8,6 +8,11 @@ Text Domain: Akshay Shah Design Studio
 Tags:       architect, architecture, architecture design, architecture portfolio, architecture studio, clean, furniture store, gallery, interior decoration, interior design, interior design portfolio, interior designer, modern, property
 ================================================*/
 
+/* === Disable the custom-cursor follower (and its trailing dot) === */
+.curser, .curser2, .cursor, .cursor2 { display: none !important; }
+body, a, button, .btn, input, select, textarea { cursor: auto !important; }
+a, button, .btn { cursor: pointer !important; }
+
 /* === ASDS responsive guards — keeps the site usable on every screen ===
    Sits ABOVE the template's responsive.css and our own size-cap rules. */
 
