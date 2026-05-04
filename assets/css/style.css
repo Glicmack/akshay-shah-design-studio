@@ -7,6 +7,29 @@ Version: 1.0.0
 Text Domain: Arcke
 Tags:       architect, architecture, architecture design, architecture portfolio, architecture studio, clean, furniture store, gallery, interior decoration, interior design, interior design portfolio, interior designer, modern, property
 ================================================*/
+
+/* === ASDS logo size guard (prevents SVG overflow into menu/header) === */
+.logo a img,
+.logo .logo_img img,
+.logo .main_sticky img,
+.nav-logo img,
+.elaction-logo img,
+.widgets-company-info-box .elaction-logo img {
+    max-width: 180px;
+    width: auto;
+    height: auto;
+    max-height: 56px;
+    display: inline-block;
+    vertical-align: middle;
+}
+@media (max-width: 991px) {
+    .logo a img,
+    .logo .logo_img img,
+    .logo .main_sticky img {
+        max-width: 150px;
+        max-height: 48px;
+    }
+}
     
 /*TABLE OF CONTENTS*/
 /*=====================
