@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" role="img" aria-label="Akshay Shah Design Studio">
+  <style>
+    .brand-name { font-family: 'Georgia', 'Playfair Display', serif; font-weight: 700; font-size: 26px; letter-spacing: 2px; fill: #ffffff; }
+    .brand-sub  { font-family: 'Helvetica', 'Arial', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 6px; fill: #d4a35d; }
+    .mark-stroke { fill: none; stroke: #d4a35d; stroke-width: 2.2; }
+    .mark-stroke-w { fill: none; stroke: #ffffff; stroke-width: 2.2; }
+  </style>
+
+  <g transform="translate(8,12)">
+    <rect x="1" y="1" width="56" height="56" rx="3" class="mark-stroke"/>
+    <path d="M11 46 L21 14 L31 46 M14.5 36 L27.5 36" class="mark-stroke-w" stroke-linecap="square" stroke-linejoin="miter"/>
+    <path d="M47 18 C47 14, 42 14, 39 14 C35 14, 33 17, 33 20 C33 23, 35 25, 39 26 C44 27, 47 28, 47 32 C47 36, 43 38, 39 38 C35 38, 32 36, 32 33"
+          class="mark-stroke-w" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(80,38)">
+    <text class="brand-name" x="0" y="0">AKSHAY SHAH</text>
+    <text class="brand-sub"  x="2" y="20">DESIGN  STUDIO</text>
+  </g>
+</svg>
