@@ -5439,13 +5439,9 @@ span.fill {
     left: 0;
     height: 100%;
     width: 100%;
-    background: url('../images/portfolio/project_7.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: rgba(26, 26, 26, 0.72);
     opacity: 0;
     transition: .5s;
-    transform: scale(0);
 }
 
 .project_area_five .single_project-tmb img {
@@ -5668,14 +5664,10 @@ span.fill {
     left: 0;
     height: 100%;
     width: 100%;
-    background: url('../images/portfolio/project_8.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: rgba(26, 26, 26, 0.72);
     opacity: 0;
     transition: .5s;
-    transform: scale(0);
-} 
+}
 
 .project_area_five.upper .single_project_button a {
     display: inline-block;
