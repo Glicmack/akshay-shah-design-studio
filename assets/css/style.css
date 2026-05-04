@@ -8,6 +8,56 @@ Text Domain: Akshay Shah Design Studio
 Tags:       architect, architecture, architecture design, architecture portfolio, architecture studio, clean, furniture store, gallery, interior decoration, interior design, interior design portfolio, interior designer, modern, property
 ================================================*/
 
+/* === Blog grid cards: readable on light page background === */
+.single-blog-box.light-card {
+    background: #fafafa !important;
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 0 !important;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.06);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.single-blog-box.light-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,0,0,.10);
+}
+.single-blog-box.light-card .blog-thumb {
+    margin-bottom: 0 !important;
+}
+.single-blog-box.light-card .blog-thumb img {
+    border-radius: 0 !important;
+}
+.single-blog-box.light-card .blog-content {
+    padding: 22px 24px 26px !important;
+}
+.single-blog-box.light-card h4,
+.single-blog-box.light-card h4 span {
+    color: #555 !important;
+    font-size: 13px !important;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px !important;
+}
+.single-blog-box.light-card h3,
+.single-blog-box.light-card h3 a {
+    color: #1a1a1a !important;
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 16px !important;
+}
+.single-blog-box.light-card h3 a:hover { color: #d5a97a !important; }
+.single-blog-box.light-card .blog-button a {
+    color: #d5a97a !important;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px !important;
+    letter-spacing: 1px;
+}
+.single-blog-box.light-card .blog-button a:hover { color: #1a1a1a !important; }
+
 /* === About page Story photo: kill the peach overlay & any hover effect === */
 .about-area.one .about-thumb::before { display: none !important; }
 .about-area.one .single-about-left:hover .about-thumb::before { display: none !important; }
