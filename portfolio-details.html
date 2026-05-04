@@ -228,10 +228,11 @@
 			<div class="row upper">
 				<div class="col-lg-6">
 					<div class="portfolio-details">
-						<div class="portfolio-details-thumb">
-							<img src="assets/images/portfolio/horizontal-1.jpg" alt="">
+							<div class="portfolio-details-thumb">
+								<img id="detail-lead-img" src="assets/images/portfolio/horizontal-1.jpg" alt="" style="width:100%;height:520px;object-fit:cover;border-radius:6px;">
+							</div>
+							<div id="detail-gallery" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;"></div>
 						</div>
-					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="sideber-box">
@@ -242,12 +243,12 @@
 						</div>
 						<div class="catagories-body">
 							<ul>
-								<li>Project<span>:Creative Template Design</span></li>
-								<li>Category<span>:Graphics Design / Web Design</span></li>
-								<li>Client<span> :Bara Kobama</span></li>
-								<li>Complete<span>Date :01 October, 2024</span></li>
-								<li>Skills<span> :Photoshop / Illustrator</span></li>
-							</ul>
+									<li>Project<span id="detail-project">: —</span></li>
+									<li>Category<span id="detail-category">: —</span></li>
+									<li>Location<span id="detail-location">: Ankleshwar, Gujarat</span></li>
+									<li>Year<span id="detail-year">: 2026</span></li>
+									<li>Scope<span id="detail-scope">: —</span></li>
+								</ul>
 							<div class="catagories-icon">
 								<p>Share:
 									<a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -263,8 +264,8 @@
 			</div>
 			<div class="row">
 				<div class="sideber-title">
-					<h2>Architecture</h2>
-					<p>Whether you are building an enterprise web portal or a state-of-the-art website, you always need the right modern tools. Well-built and maintained PHP frameworks provide those tools maintained PHP frameworks provide those tools in abundance, allowing developers to save time, re-use code, and streamline the back end. As software development tools continuously change to follow the latest. Despite the competition from startups and the ever-present economic challenges, the banking industry is gradually adopting what the latest technologies have to offer. From cloud technology to cyber risk management to machine learning in investment banking, join us as we explore the banking industry trends for 2019 and beyond. Cloud is one of the current banking industry trends as well.</p>
+					<h2 id="detail-title">Project Title</h2>
+					<p id="detail-desc">Project description.</p>
 				</div>
 			</div>
 		</div>
@@ -472,6 +473,69 @@ $('.aa').counterUp({
 
 
 
+
+
+<!-- Project detail loader -->
+<script>
+(function(){
+  var projects = {
+    1:{title:"Modular Kitchen with Island",
+       desc:"A sleek modular kitchen built around a multi-purpose island. Integrated appliances, soft-close hardware, and a stone counter that handles real Indian cooking. Layout planned to keep the work triangle tight while giving the family a casual breakfast spot at the island.",
+       lead:"assets/images/projects/kitchen-2.jpg",
+       gallery:["assets/images/projects/kitchen-1.jpg","assets/images/projects/kitchen-4.jpg"],
+       category:": Kitchen / Modular",
+       scope:": 2D plans, 3D model, Execution"},
+    2:{title:"Cozy Master Bedroom",
+       desc:"A warm, layered master bedroom designed for genuine rest. Wooden veneers, a custom upholstered headboard, indirect lighting, and clever wardrobe planning to maximise floor space without crowding the bed.",
+       lead:"assets/images/projects/bedroom-2.jpg",
+       gallery:["assets/images/projects/bedroom-1.jpg","assets/images/projects/bedroom-4.jpg"],
+       category:": Bedroom",
+       scope:": 2D plans, 3D model, Furniture"},
+    3:{title:"Open-Plan Living",
+       desc:"Living, dining and kitchen unified into one airy, light-filled volume. The kitchen sits behind a low partition, the dining anchors the centre, and the living zone faces the longest sight line for a sense of space.",
+       lead:"assets/images/projects/living-kitchen-2.jpg",
+       gallery:["assets/images/projects/living-kitchen-1.jpg","assets/images/projects/scene-2.jpg"],
+       category:": Living + Kitchen",
+       scope:": Full interior design"},
+    4:{title:"Contemporary Kitchen",
+       desc:"Matte cabinetry, brushed metal handles, and quartz counters that age beautifully. Tall units conceal the fridge and pantry, keeping the surface line clean and uninterrupted.",
+       lead:"assets/images/projects/kitchen-4.jpg",
+       gallery:["assets/images/projects/kitchen-3.jpg","assets/images/projects/kitchen-1.jpg"],
+       category:": Kitchen / Contemporary",
+       scope:": 2D plans, 3D model, Execution"},
+    5:{title:"Minimal Bedroom Suite",
+       desc:"A pared-back palette and clever joinery for a clean, restful suite. Bedroom, walk-in wardrobe and ensuite share a single calm material story — pale woods, soft whites, and warm metallic accents.",
+       lead:"assets/images/projects/bedroom-3.jpg",
+       gallery:["assets/images/projects/bedroom-1.jpg","assets/images/projects/bedroom-2.jpg"],
+       category:": Bedroom Suite",
+       scope:": Full interior design"},
+    6:{title:"Living Room Refresh",
+       desc:"Soft textures, custom upholstery, and a layout designed for real living — TV viewing, casual conversation, and reading by the window all flow naturally without competing for the same space.",
+       lead:"assets/images/projects/scene-3.jpg",
+       gallery:["assets/images/projects/sofa-1.jpg","assets/images/projects/scene-1.jpg"],
+       category:": Living Room",
+       scope:": Furniture, Styling, Lighting"}
+  };
+  var id = parseInt(new URLSearchParams(location.search).get("id"),10);
+  var p = projects[id] || projects[1];
+  function set(idAttr,val){var el=document.getElementById(idAttr);if(el)el.textContent=val;}
+  document.getElementById("detail-lead-img").src = p.lead;
+  set("detail-title", p.title);
+  set("detail-desc", p.desc);
+  set("detail-project", ": "+p.title);
+  set("detail-category", p.category);
+  set("detail-scope", p.scope);
+  // fill gallery
+  var g = document.getElementById("detail-gallery");
+  if(g){
+    g.innerHTML = p.gallery.map(function(src){
+      return '<img src="'+src+'" alt="" style="width:100%;height:240px;object-fit:cover;border-radius:6px;">';
+    }).join("");
+  }
+  // update <title> tag
+  document.title = p.title + " — Akshay Shah Design Studio";
+})();
+</script>
 
 </body>
 
