@@ -10,43 +10,44 @@ Tags:       architect, architecture, architecture design, architecture portfolio
 
 /* === ASDS email — smaller font + no color/underline change ===
    Inherits parent color completely so hover/visited never recolor it. */
-.email-text,
-.email-text:link,
-.email-text:visited,
-.email-text:hover,
-.email-text:active,
-.email-text:focus {
-    font-size: 12px;
-    color: inherit;
-    text-decoration: none;
-    word-break: break-all;
-    overflow-wrap: anywhere;
-    line-height: 1.4;
-    letter-spacing: -0.2px;
-    vertical-align: middle;
+a.email-text,
+a.email-text:link,
+a.email-text:visited,
+a.email-text:hover,
+a.email-text:active,
+a.email-text:focus,
+.email-text {
+    font-size: 11px !important;
+    color: inherit !important;
+    text-decoration: none !important;
+    word-break: break-all !important;
+    overflow-wrap: anywhere !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.2px !important;
 }
 
-/* Sidebar widget contact list: keep wrapped email text aligned next to
-   the envelope icon instead of dropping under it. */
-ul.list-style-one li {
+/* Sidebar widget contact list: icon stays on left, wrapped text indents next to it. */
+ul.list-style-one > li {
     display: flex !important;
-    align-items: flex-start;
+    align-items: flex-start !important;
     overflow: visible !important;
 }
-ul.list-style-one li i {
-    flex-shrink: 0;
-    margin-top: 4px;
+ul.list-style-one > li > i {
+    flex: 0 0 auto !important;
+    margin-right: 10px !important;
+    margin-top: 4px !important;
 }
 
 /* Footer "Get In Touch" list — same indent fix. */
-.widgets-company-icon-list ul li {
-    display: flex;
-    align-items: flex-start;
+.widgets-company-info .widgets-company-icon-list ul li {
+    display: flex !important;
+    align-items: flex-start !important;
+    overflow: visible !important;
 }
-.widgets-company-icon-list ul li i {
-    flex-shrink: 0;
-    margin-top: 4px;
-    margin-right: 8px;
+.widgets-company-info .widgets-company-icon-list ul li i {
+    flex: 0 0 auto !important;
+    margin-right: 8px !important;
+    margin-top: 4px !important;
 }
 
 /* === ASDS logo size guard (prevents SVG overflow into menu/header) === */
