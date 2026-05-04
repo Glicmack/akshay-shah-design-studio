@@ -1234,7 +1234,7 @@
     left: 28%;
 }
 
-.arcke-agency-area .arcke-agency h2 {
+.studio-agency-area .studio-agency h2 {
     font-size: 35px;
     line-height: 50px;
 }
@@ -1670,7 +1670,7 @@
 .blog-area.one .blog-button::before {
     display: none;
 }
-.arcke-agency-area .arcke-agency h2 {
+.studio-agency-area .studio-agency h2 {
     font-size: 30px;
     line-height: 40px;
 }
@@ -2250,7 +2250,7 @@
     left: 53%;
 }
 
-.arcke-agency-area .arcke-agency h2 {
+.studio-agency-area .studio-agency h2 {
     font-size: 20px;
     line-height: 30px;
 }

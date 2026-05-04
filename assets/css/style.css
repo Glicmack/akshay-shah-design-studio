@@ -1,12 +1,61 @@
 
 /*===============================================
-Template Name: Arcke - Architecture & Interior Design HTML5 Template
+Template Name: Akshay Shah Design Studio - Architecture & Interior Design HTML5 Template
 Author:  https://themeforest.net/user/dreamit-solution
 Description: Description
 Version: 1.0.0
-Text Domain: Arcke
+Text Domain: Akshay Shah Design Studio
 Tags:       architect, architecture, architecture design, architecture portfolio, architecture studio, clean, furniture store, gallery, interior decoration, interior design, interior design portfolio, interior designer, modern, property
 ================================================*/
+
+/* === ASDS responsive guards — keeps the site usable on every screen ===
+   Sits ABOVE the template's responsive.css and our own size-cap rules. */
+
+*, *::before, *::after { box-sizing: border-box; }
+img, video, iframe, svg { max-width: 100%; height: auto; }
+html, body { overflow-x: hidden; max-width: 100%; }
+
+.map-section iframe { width: 100% !important; height: 420px; max-width: 100%; }
+
+@media (max-width: 991px) {
+    .header-button a, .head-btn a { padding: 8px 14px; font-size: 13px; }
+    .header-src-box { gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .counter-area .col-lg-4 { flex: 0 0 50%; max-width: 50%; }
+    .btn, button.btn, .pricing-button a, .service-button a, .feature-button a,
+    .blog-button a, .project-button a, .team-button a {
+        min-height: 44px; padding-top: 12px; padding-bottom: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    #quote-form .col-lg-6, #dreamit-form .col-lg-6 {
+        width: 100%; flex: 0 0 100%; max-width: 100%;
+    }
+    #quote-form input, #quote-form select, #quote-form textarea,
+    #dreamit-form input, #dreamit-form select, #dreamit-form textarea { width: 100%; }
+    .single-pricing-box, .single-inner-service-box, .single-service-box,
+    .single-feature-box, .single-team-box, .single-blog-box, .single-project-box {
+        margin-bottom: 24px;
+    }
+    .about-area, .service-area, .project-area, .team-area, .testimonial-area,
+    .blog-area, .pricing-area, .counter-area, .contact-area-inner, .feature-area {
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+    .footer-section .col-lg-4, .footer-section .col-lg-3 { margin-bottom: 30px; }
+}
+
+@media (max-width: 575px) {
+    .counter-area .col-lg-4 { flex: 0 0 100%; max-width: 100%; }
+    .counter-text h1 { font-size: 42px; }
+    .slider-area h1, .slider_area_five h1 { font-size: 34px !important; line-height: 1.15 !important; }
+    .slider-area h4, .slider_area_five h4 { font-size: 13px !important; letter-spacing: 2px; }
+    .breadcumb-area h1 { font-size: 32px !important; }
+}
+
+@media (max-width: 480px) {
+    .xs-sidebar-widget { width: 92% !important; max-width: 92% !important; }
+}
 
 /* === ASDS email — smaller font + no color/underline change ===
    Inherits parent color completely so hover/visited never recolor it. */
@@ -96,47 +145,47 @@ ul.list-style-one > li > i {
     
 /*TABLE OF CONTENTS*/
 /*=====================
-01. Arcke top-menu-area Css
-02. Arcke Nav Menu Area Css
-03. Arcke breadcumb Area Css
-04. Arcke section-title Css
-05. Arcke Slider Area Css
-06. Arcke feature-area Css
-07. Arcke tag-area Css
-08. Arcke about area Css
-09. Arcke Prossess Ber Css
-10. Arcke gallery area Css
-11. Arcke counter area Css
-12. Arcke service-area  Css
-13. Arcke project all inner page Css
-14. Arcke service-details-area Css
-15. Arcke arcke-agency-area Css
-16. Arcke pricing-area Css
-17. Arcke project-area Css
-18. Arcke call-do-action-area Css
-19. Arcke contact area Css
-20. Arcke map-section Css
-21. Arcke team-area Css
-22. Arcke team area inner page Css
-23. Arcke testimonial-area Css
-24. Arcke video-area-seven Css
-25. Arcke blog-area Css
-26. Arcke blog-details-area Css
-27. Arcke cascading-area Css
-28. Arcke horizontal-area Css
-29. Arcke horizontal-slider-area Css
-30. Arcke portfolio-masonary-area Css
-31. Arcke portfolio-details-area Css
-32. Arcke spilt-slider-area Css
-33. Arcke brand-area Css
-34. Arcke shop-area CSS
-35. Arcke footer-section CSS
-36. Arcke copyright-area Css
+01. Akshay Shah Design Studio top-menu-area Css
+02. Akshay Shah Design Studio Nav Menu Area Css
+03. Akshay Shah Design Studio breadcumb Area Css
+04. Akshay Shah Design Studio section-title Css
+05. Akshay Shah Design Studio Slider Area Css
+06. Akshay Shah Design Studio feature-area Css
+07. Akshay Shah Design Studio tag-area Css
+08. Akshay Shah Design Studio about area Css
+09. Akshay Shah Design Studio Prossess Ber Css
+10. Akshay Shah Design Studio gallery area Css
+11. Akshay Shah Design Studio counter area Css
+12. Akshay Shah Design Studio service-area  Css
+13. Akshay Shah Design Studio project all inner page Css
+14. Akshay Shah Design Studio service-details-area Css
+15. Akshay Shah Design Studio studio-agency-area Css
+16. Akshay Shah Design Studio pricing-area Css
+17. Akshay Shah Design Studio project-area Css
+18. Akshay Shah Design Studio call-do-action-area Css
+19. Akshay Shah Design Studio contact area Css
+20. Akshay Shah Design Studio map-section Css
+21. Akshay Shah Design Studio team-area Css
+22. Akshay Shah Design Studio team area inner page Css
+23. Akshay Shah Design Studio testimonial-area Css
+24. Akshay Shah Design Studio video-area-seven Css
+25. Akshay Shah Design Studio blog-area Css
+26. Akshay Shah Design Studio blog-details-area Css
+27. Akshay Shah Design Studio cascading-area Css
+28. Akshay Shah Design Studio horizontal-area Css
+29. Akshay Shah Design Studio horizontal-slider-area Css
+30. Akshay Shah Design Studio portfolio-masonary-area Css
+31. Akshay Shah Design Studio portfolio-details-area Css
+32. Akshay Shah Design Studio spilt-slider-area Css
+33. Akshay Shah Design Studio brand-area Css
+34. Akshay Shah Design Studio shop-area CSS
+35. Akshay Shah Design Studio footer-section CSS
+36. Akshay Shah Design Studio copyright-area Css
 =======================*/
 
 
 /*================================
-<-- Arcke top-menu-area Css -->
+<-- Akshay Shah Design Studio top-menu-area Css -->
 ==================================*/
 
 .top-menu-area {
@@ -179,7 +228,7 @@ ul.list-style-one > li > i {
 }
 
 /*================================
-<--  Arcke Nav Menu Area Css -->
+<--  Akshay Shah Design Studio Nav Menu Area Css -->
 ==================================*/
 
 .hendre_nav_manu {
@@ -1114,7 +1163,7 @@ ul.social-box li a:hover {
 }
 
 /*--==============================================->
-<!-- Arcke breadcumb Area Css -->
+<!-- Akshay Shah Design Studio breadcumb Area Css -->
 ==================================================-*/
 
 .breadcumb-area {
@@ -1183,7 +1232,7 @@ ul.social-box li a:hover {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke section-title Css -->
+<!-- Akshay Shah Design Studio section-title Css -->
 <!-- ============================================================== -->*/
 
 .section-title {
@@ -1322,7 +1371,7 @@ ul.social-box li a:hover {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke Slider Area Css -->
+<!-- Akshay Shah Design Studio Slider Area Css -->
 <!-- ============================================================== -->*/
 
 .slider-area.one {
@@ -2205,7 +2254,7 @@ ul.social-box li a:hover {
 }
 
 /**====================================================
-<-- Arcke feature-area Css -->
+<-- Akshay Shah Design Studio feature-area Css -->
 ======================================================**/
 
 .feature-area.one {
@@ -2418,7 +2467,7 @@ ul.social-box li a:hover {
 }
 
 /**====================================================
-<-- Arcke tag-area Css -->
+<-- Akshay Shah Design Studio tag-area Css -->
 ======================================================**/
 
 .tag-area.one {
@@ -2524,7 +2573,7 @@ ul.social-box li a:hover {
 
 
 /**====================================================
-<--  Arcke about area Css -->
+<--  Akshay Shah Design Studio about area Css -->
 ======================================================**/
 
 .about-area.one {
@@ -2796,7 +2845,7 @@ ul.social-box li a:hover {
 }
 
 /**====================================================
-<--  Arcke Prossess Ber Css -->
+<--  Akshay Shah Design Studio Prossess Ber Css -->
 ======================================================**/
 .prossess-ber-plugin span {
     font-size: 15px;
@@ -3504,7 +3553,7 @@ span.fill {
 
 
 /**====================================================
-<-- Arcke gallery area Css -->
+<-- Akshay Shah Design Studio gallery area Css -->
 ======================================================**/
 
 .gallery_area {
@@ -3652,7 +3701,7 @@ span.fill {
 }
 
 /**====================================================
-<-- Arcke counter area Css -->
+<-- Akshay Shah Design Studio counter area Css -->
 ======================================================**/
 .counter-area.one {
     background: #161616;
@@ -3862,7 +3911,7 @@ span.fill {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke service-area  Css -->
+<!-- Akshay Shah Design Studio service-area  Css -->
 <!-- ============================================================== -->*/
 
 .service-area.one {
@@ -4245,7 +4294,7 @@ span.fill {
 
 
 /*<!-- ============================================================== -->
-<!-- Arcke project all inner page Css -->
+<!-- Akshay Shah Design Studio project all inner page Css -->
 <!-- ============================================================== -->*/
 
 .service-area-inner-page {
@@ -4542,7 +4591,7 @@ span.fill {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke service-details-area Css -->
+<!-- Akshay Shah Design Studio service-details-area Css -->
 <!-- ============================================================== -->*/
 
 .service-details-area {
@@ -4622,10 +4671,10 @@ span.fill {
 
 
 /*<!-- ============================================================== -->
-<!-- Arcke arcke-agency-area Css -->
+<!-- Akshay Shah Design Studio studio-agency-area Css -->
 <!-- ============================================================== -->*/
 
-.arcke-agency-area {
+.studio-agency-area {
     background: url(../images/resource/agency.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -4635,7 +4684,7 @@ span.fill {
     z-index: 1;
 }
 
-.arcke-agency-area .arcke-agency h2 {
+.studio-agency-area .studio-agency h2 {
     font-size: 50px;
     line-height: 58px;
     color: #ffffff;
@@ -4644,17 +4693,17 @@ span.fill {
     text-align: center;
 }
 
-.arcke-agency-area .arcke-agency h2 span {
+.studio-agency-area .studio-agency h2 span {
     color: #D9AB7A;
 }
 
-.arcke-agency-area .arcke-agency-button {
+.studio-agency-area .studio-agency-button {
     position: relative;
     z-index: 1;
     text-align: center;
 }
 
-.arcke-agency-area .arcke-agency-button a {
+.studio-agency-area .studio-agency-button a {
     display: inline-block;
     font-size: 15px;
     padding: 12px 42px;
@@ -4669,7 +4718,7 @@ span.fill {
     animation: 1s 1.3s fadeInUp both;
 }
 
-.arcke-agency-area .arcke-agency-button a::after, .arcke-agency-button a::before {
+.studio-agency-area .studio-agency-button a::after, .studio-agency-button a::before {
     position: absolute;
     content: "";
     transform: rotate(0);
@@ -4682,38 +4731,38 @@ span.fill {
     transition: all .7s ease-out;
 }
 
-.arcke-agency-area .arcke-agency-button a::before {
+.studio-agency-area .studio-agency-button a::before {
     top: -7px;
     left: -7px;
     border-width: 0 1px 1px 0;
     border-color: #cda274;
 }
 
-.arcke-agency-area .arcke-agency-button a::after {
+.studio-agency-area .studio-agency-button a::after {
     bottom: -7px;
     right: -7px;
     border-width: 1px 0 0 1px;
     border-color: #cda274;
 }
 
-.arcke-agency-area .arcke-agency-button a:hover::before {
+.studio-agency-area .studio-agency-button a:hover::before {
     left: 100%;
     transform: rotate(90deg);
 }
 
-.arcke-agency-area .arcke-agency-button a:hover::after {
+.studio-agency-area .studio-agency-button a:hover::after {
     right: 100%;
     transform: rotate(90deg);
 }
 
-.arcke-agency-area .arcke-agency-button a:hover::before {
+.studio-agency-area .studio-agency-button a:hover::before {
     left: 100%;
     transform: rotate(90deg);
 }
 
 
 /*<!-- ============================================================== -->
-<!-- Arcke pricing-area Css -->
+<!-- Akshay Shah Design Studio pricing-area Css -->
 <!-- ============================================================== -->*/
 
 .pricing-area {
@@ -5031,7 +5080,7 @@ span.fill {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke project-area Css -->
+<!-- Akshay Shah Design Studio project-area Css -->
 <!-- ============================================================== -->*/
 
 .project-area.one {
@@ -5585,7 +5634,7 @@ span.fill {
 
 
 /*<!-- ============================================================== -->
-<!-- Arcke call-do-action-area Css -->
+<!-- Akshay Shah Design Studio call-do-action-area Css -->
 <!-- ============================================================== -->*/
 
 .call-do-action-area {
@@ -5639,7 +5688,7 @@ span.fill {
 
 
 /*<!-- ============================================================== -->
-<!-- Arcke contact area Css -->
+<!-- Akshay Shah Design Studio contact area Css -->
 <!-- ============================================================== -->*/
 
 .contact_area_three {
@@ -5861,7 +5910,7 @@ span.fill {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke map-section Css -->
+<!-- Akshay Shah Design Studio map-section Css -->
 <!-- ============================================================== -->*/
 
 .map-section {
@@ -5875,7 +5924,7 @@ span.fill {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke team-area Css -->
+<!-- Akshay Shah Design Studio team-area Css -->
 <!-- ============================================================== -->*/
 
 .team-area.one {
@@ -6157,7 +6206,7 @@ span.fill {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke team area inner page Css -->
+<!-- Akshay Shah Design Studio team area inner page Css -->
 <!-- ============================================================== -->*/
 
 .team-area-inner-page {
@@ -6437,7 +6486,7 @@ span.fill {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke testimonial-area Css -->
+<!-- Akshay Shah Design Studio testimonial-area Css -->
 <!-- ============================================================== -->*/
 
 .testimonial-area.one {
@@ -6939,7 +6988,7 @@ span.fill {
 
 
 /*<!-- ============================================================== -->
-<!-- Arcke video-area-seven Css -->
+<!-- Akshay Shah Design Studio video-area-seven Css -->
 <!-- ============================================================== -->*/
 
 .video-area-seven {
@@ -7034,7 +7083,7 @@ span.fill {
 }
 
 /*<!-- ============================================================== -->
-<!--  Arcke blog-area Css -->
+<!--  Akshay Shah Design Studio blog-area Css -->
 <!-- ============================================================== -->*/
 
 .blog-area.one {
@@ -7678,7 +7727,7 @@ span.fill {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke blog-details-area Css -->
+<!-- Akshay Shah Design Studio blog-details-area Css -->
 <!-- ============================================================== -->*/
 
 .blog-details-area {
@@ -8174,7 +8223,7 @@ input.src-input-box::placeholder {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke cascading-area Css -->
+<!-- Akshay Shah Design Studio cascading-area Css -->
 <!-- ============================================================== -->*/
 
 .cascading-area {
@@ -8394,7 +8443,7 @@ input.src-input-box::placeholder {
 
 
 /*<!-- ============================================================== -->
-<!-- Arcke horizontal-area Css -->
+<!-- Akshay Shah Design Studio horizontal-area Css -->
 <!-- ============================================================== -->*/
 
 .horizontal-area {
@@ -8578,7 +8627,7 @@ input.src-input-box::placeholder {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke horizontal-slider-area Css -->
+<!-- Akshay Shah Design Studio horizontal-slider-area Css -->
 <!-- ============================================================== -->*/
 
 .horizontal-slider-area {
@@ -8693,7 +8742,7 @@ input.src-input-box::placeholder {
 
 
 /*<!-- ============================================================== -->
-<!-- Arcke portfolio-masonary-area Css -->
+<!-- Akshay Shah Design Studio portfolio-masonary-area Css -->
 <!-- ============================================================== -->*/
 
 .portfolio-masonary-area {
@@ -9332,7 +9381,7 @@ input.src-input-box::placeholder {
 }
 
 /*====================================================
---< Arcke portfolio-details-area Css -->
+--< Akshay Shah Design Studio portfolio-details-area Css -->
 ======================================================*/
 
 .portfolio-details-area {
@@ -9456,7 +9505,7 @@ input.src-input-box::placeholder {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke spilt-slider-area Css -->
+<!-- Akshay Shah Design Studio spilt-slider-area Css -->
 <!-- ============================================================== -->*/
 
 .spilt-slider-area {
@@ -9606,7 +9655,7 @@ input.src-input-box::placeholder {
 
 
 /*<!-- ============================================================== -->
-<!-- Arcke brand-area Css -->
+<!-- Akshay Shah Design Studio brand-area Css -->
 <!-- ============================================================== -->*/
 
 .brand-area.one {
@@ -9701,7 +9750,7 @@ input.src-input-box::placeholder {
 }
 
 /*<!-- ============================================================== -->
-<!-- Arcke shop-area CSS -->
+<!-- Akshay Shah Design Studio shop-area CSS -->
 <!-- ============================================================== -->*/
 
 .shop-area {
@@ -10732,7 +10781,7 @@ Shop dtls Right
 
 
 /*<!-- ============================================================== -->
-<!--  Arcke footer-section CSS -->
+<!--  Akshay Shah Design Studio footer-section CSS -->
 <!-- ============================================================== -->*/
 
 .footer-section {
@@ -12328,7 +12377,7 @@ button.btns:hover::before{
 
 
 /*<!-- ============================================================== -->
-<!-- Arcke copyright-area Css -->
+<!-- Akshay Shah Design Studio copyright-area Css -->
 <!-- ============================================================== -->*/
 
 .copyright-area {
