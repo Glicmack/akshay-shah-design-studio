@@ -8,6 +8,22 @@ Text Domain: Akshay Shah Design Studio
 Tags:       architect, architecture, architecture design, architecture portfolio, architecture studio, clean, furniture store, gallery, interior decoration, interior design, interior design portfolio, interior designer, modern, property
 ================================================*/
 
+/* === Service-card preview thumbnails === */
+.service-preview {
+    margin: 18px 0 18px;
+    border-radius: 6px;
+    overflow: hidden;
+    line-height: 0;
+}
+.service-preview img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    transition: transform .35s ease;
+}
+.service-preview img:hover { transform: scale(1.04); }
+
 /* === Home About counter: ASDS logo background, color-matched to logo interior === */
 .about_area_five .counter_box {
     background-color: #303031 !important;   /* matches the logo's dark center so no visible square */
