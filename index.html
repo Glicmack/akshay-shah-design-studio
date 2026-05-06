@@ -194,30 +194,47 @@
 
 
 	<!--==================================================-->
-	<!-- Start slider_area.five -->
+	<!-- Start slider_area.five (scroll-scrubbed video hero) -->
 	<!--==================================================-->
 
-	<div class="slider_area_five d-flex align-items-center">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="owl-carousel slid_list">
-					<div class="col-lg-12">
-						<div class="single-slider">
-							<div class="slide_content">
-								<h4>WELCOME TO AKSHAY SHAH</h4>
-								<h1>A Design So Unique It Was <br> <span>Created</span> For You Only</h1>
-								<div class="home-five-button">
-									<a href="#">VIEW MORE</a>
+	<style>
+		.hero-video-section{position:relative;width:100%;height:100vh;overflow:hidden;background:#000;}
+		.hero-video-section .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none;background:#000;}
+		.hero-video-section .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30) 0%,rgba(0,0,0,.55) 100%);z-index:1;}
+		.hero-video-section .slider_area_five{position:absolute;inset:0;background:none !important;z-index:2;}
+		.hero-video-section .slider_area_five::before,.hero-video-section .slider_area_five::after{display:none !important;}
+		.hero-video-section .slider_area_five .slide_content h4,
+		.hero-video-section .slider_area_five .slide_content h1{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);}
+		.hero-skip-btn{position:absolute;right:24px;bottom:24px;z-index:5;padding:10px 20px;font-size:13px;letter-spacing:2px;font-weight:600;color:#fff;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.5);border-radius:30px;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .25s,border-color .25s,color .25s;}
+		.hero-skip-btn:hover{background:#d7ab79;border-color:#d7ab79;color:#1a1a1a;}
+		@media (max-width: 575px){.hero-skip-btn{right:14px;bottom:14px;padding:8px 14px;font-size:11px;}}
+	</style>
+
+	<div class="hero-video-section" id="heroVideoSection">
+		<video class="hero-video" id="heroVideo"
+			muted playsinline preload="auto"
+			poster="assets/videos/showreel-poster.jpg">
+			<source src="assets/videos/showreel.mp4" type="video/mp4">
+		</video>
+		<div class="hero-overlay"></div>
+		<button type="button" id="heroSkipBtn" class="hero-skip-btn" aria-label="Skip intro video">SKIP &rsaquo;</button>
+
+		<div class="slider_area_five d-flex align-items-center">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="owl-carousel slid_list">
+						<div class="col-lg-12">
+							<div class="single-slider">
+								<div class="slide_content">
+									<h4>WELCOME TO AKSHAY SHAH DESIGN STUDIO</h4>
+									<h1>A Design So Unique It Was <br>Created For You Only</h1>
+									<div class="home-five-button">
+										<a href="#">VIEW MORE</a>
+									</div>
+									<div class="home-five-btn">
+										<a href="#">Contact Us</a>
+									</div>
 								</div>
-								<div class="home-five-btn">
-									<a href="#">Contact Us</a>
-								</div>
-							</div>
-							<div class="single-slider_icon-list">
-								<ul>
-									<li><a href="https://maps.app.goo.gl/qRQ6CeuRTaQAx1kp7" target="_blank" rel="noopener" title="Find us on Google Maps"><i class="bi bi-geo-alt-fill"></i></a></li>
-									<li><a href="https://www.instagram.com/" target="_blank" rel="noopener" title="Follow on Instagram"><i class="fab fa-instagram"></i></a></li>
-								</ul>
 							</div>
 						</div>
 					</div>
@@ -525,46 +542,7 @@
 	<!--==================================================-->
 
 
-	<!--==================================================-->
-	<!-- Start showreel-area -->
-	<!--==================================================-->
-	<div class="showreel-area" style="padding:80px 0;background:#0d0d0d;">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section_title_five" style="text-align:center;margin-bottom:36px;">
-						<div class="sub_title">
-							<h4 style="color:#d5a97a;letter-spacing:3px;">OUR SHOWREEL</h4>
-						</div>
-						<div class="main_title">
-							<h1 style="color:#fff;">Our Studio in Motion</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-10">
-					<div style="position:relative;border-radius:8px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.45);">
-						<video
-							controls
-							preload="metadata"
-							playsinline
-							poster="assets/videos/showreel-poster.jpg"
-							style="width:100%;height:auto;display:block;background:#000;">
-							<source src="assets/videos/showreel.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-						</video>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--==================================================-->
-	<!-- End showreel-area -->
-	<!--==================================================-->
-
-
-	<!--==================================================-->
+<!--==================================================-->
 	<!-- Start call-do-action-area -->
 	<!--==================================================-->
 
@@ -1232,7 +1210,160 @@
 	<script src="assets/js/theme.js?v=20260504"></script>
 	<!-- dark-light js -->
 
+	<!-- hero: lock page scroll, play forward at 2x on scroll-down, seek backward on scroll-up, skip button to release -->
+	<script>
+	(function(){
+		var video = document.getElementById('heroVideo');
+		var skipBtn = document.getElementById('heroSkipBtn');
+		if(!video) return;
+		var html = document.documentElement;
+		var body = document.body;
+		var idleTimer = null;
+		var IDLE_MS = 180;
+		var PLAYBACK_RATE = 2.0;
+		var WHEEL_REVERSE_PER_PX = 0.012; // seconds of video per pixel of |deltaY|
+		var TOUCH_REVERSE_PER_PX = 0.04;
+		var KEY_REVERSE_STEP = 1.0;
+		var locked = false;
+		var savedScrollRestoration;
 
+		function getDuration(){ var d = video.duration; return (isFinite(d) && d>0) ? d : 0; }
+		function applyRate(){ try { video.playbackRate = PLAYBACK_RATE; } catch(e){} }
+
+		function showSkip(){ if(skipBtn) skipBtn.style.display=''; }
+		function hideSkip(){ if(skipBtn) skipBtn.style.display='none'; }
+
+		function lock(){
+			if(locked) return;
+			locked = true;
+			if(history && 'scrollRestoration' in history){
+				savedScrollRestoration = history.scrollRestoration;
+				history.scrollRestoration = 'manual';
+			}
+			window.scrollTo(0, 0);
+			html.style.overflow = 'hidden';
+			body.style.overflow = 'hidden';
+			html.style.height = '100%';
+			body.style.height = '100%';
+			showSkip();
+		}
+		function unlock(){
+			if(!locked) return;
+			locked = false;
+			html.style.overflow = '';
+			body.style.overflow = '';
+			html.style.height = '';
+			body.style.height = '';
+			if(history && 'scrollRestoration' in history && savedScrollRestoration !== undefined){
+				history.scrollRestoration = savedScrollRestoration;
+			}
+			pauseAll();
+			hideSkip();
+		}
+
+		function pauseAll(){ try { video.pause(); } catch(e){} }
+		function resetIdle(){ if(idleTimer) clearTimeout(idleTimer); idleTimer = setTimeout(pauseAll, IDLE_MS); }
+
+		function goForward(){
+			applyRate();
+			var p = video.play();
+			if(p && p.catch) p.catch(function(){});
+		}
+		function seekBy(delta){
+			pauseAll();
+			var d = getDuration();
+			if(!d) return;
+			var nt = video.currentTime + delta;
+			if(nt < 0) nt = 0;
+			if(nt > d - 0.05) nt = d - 0.05;
+			try { video.currentTime = nt; } catch(e){}
+		}
+
+		// size hero to fill viewport minus header (header is in normal flow above us)
+		var section = document.getElementById('heroVideoSection');
+		function sizeHero(){
+			if(!section) return;
+			var top = section.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0);
+			var h = Math.max(360, window.innerHeight - top);
+			section.style.height = h + 'px';
+		}
+		sizeHero();
+		window.addEventListener('resize', sizeHero);
+		window.addEventListener('load', sizeHero);
+
+		// set rate as soon as we know duration
+		video.addEventListener('loadedmetadata', applyRate);
+		applyRate();
+
+		// auto-unlock when video reaches the end
+		video.addEventListener('ended', unlock);
+		video.addEventListener('timeupdate', function(){
+			var d = getDuration();
+			if(d && video.currentTime >= d - 0.05) unlock();
+		});
+
+		// skip button
+		if(skipBtn){
+			skipBtn.addEventListener('click', function(e){
+				e.preventDefault();
+				e.stopPropagation();
+				unlock();
+				window.scrollTo(0, 0);
+			});
+		}
+
+		// lock immediately and on load
+		lock();
+		window.addEventListener('load', function(){ if(locked) window.scrollTo(0, 0); });
+
+		// wheel input
+		window.addEventListener('wheel', function(e){
+			if(!locked) return;
+			e.preventDefault();
+			if(e.deltaY > 0){
+				goForward();
+			} else if(e.deltaY < 0){
+				var step = Math.min(2.0, Math.max(0.25, Math.abs(e.deltaY) * WHEEL_REVERSE_PER_PX));
+				seekBy(-step);
+			}
+			resetIdle();
+		}, {passive:false});
+
+		// touch input
+		var touchY = null;
+		window.addEventListener('touchstart', function(e){
+			if(!locked) return;
+			if(e.touches && e.touches[0]) touchY = e.touches[0].clientY;
+		}, {passive:true});
+		window.addEventListener('touchmove', function(e){
+			if(!locked) return;
+			e.preventDefault();
+			if(!e.touches || !e.touches[0]) return;
+			var y = e.touches[0].clientY;
+			var dy = touchY == null ? 0 : (touchY - y);
+			touchY = y;
+			if(Math.abs(dy) < 1) return;
+			if(dy > 0){
+				goForward();
+			} else {
+				var step = Math.min(2.0, Math.max(0.2, Math.abs(dy) * TOUCH_REVERSE_PER_PX));
+				seekBy(-step);
+			}
+			resetIdle();
+		}, {passive:false});
+		window.addEventListener('touchend', function(){ if(locked) resetIdle(); });
+
+		// keyboard input
+		window.addEventListener('keydown', function(e){
+			if(!locked) return;
+			var down = ['ArrowDown','PageDown','End',' ','Spacebar'];
+			var up = ['ArrowUp','PageUp','Home'];
+			if(down.indexOf(e.key) !== -1){ e.preventDefault(); goForward(); resetIdle(); }
+			else if(up.indexOf(e.key) !== -1){ e.preventDefault(); seekBy(-KEY_REVERSE_STEP); resetIdle(); }
+			else if(e.key === 'Escape'){ e.preventDefault(); unlock(); }
+		});
+	})();
+	</script>
 
 </body>
 

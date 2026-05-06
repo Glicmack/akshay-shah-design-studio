@@ -114,14 +114,13 @@
 
 // service Active
     $('.slid_list').owlCarousel({
-        loop: true,
-        autoplay: true,
-        smartSpeed:2500,
-        autoplayTimeout: 10000,
-        dotsEach:true,
+        loop: false,
+        autoplay: false,
+        smartSpeed: 0,
         dots: false,
         nav: false,
-        navText: ["<i class='bi bi-arrow-left''></i>", "<i class='bi bi-arrow-right''></i>"],
+        mouseDrag: false,
+        touchDrag: false,
         responsive: {
             0: {
                 items: 1
