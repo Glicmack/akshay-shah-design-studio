@@ -6377,6 +6377,23 @@ span.fill {
 
 .team-area-inner-page .single-team-inner-box .single-team-inner-thumb img {
     width: 100%;
+    height: 480px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+/* Equal-height team cards */
+.team-area-inner-page .row > [class*="col-"] {
+    display: flex;
+}
+.team-area-inner-page .single-team-inner-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.team-area-inner-page .single-team-inner-box .team-inner-title {
+    margin-top: auto;
 }
 
 .team-area-inner-page .single-team-inner-box .team-inner-title h3 {
