@@ -6240,6 +6240,13 @@ span.fill {
 .team_area_five .team_single_box .team_single_thumb {
     margin: -80px 0 0 80px;
 }
+.team_area_five .team_single_box .team_single_thumb img {
+    width: 330px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
 
 .team_area_five .team_single_box .team_icon_list {
     position: absolute;
