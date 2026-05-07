@@ -4996,6 +4996,36 @@ span.fill {
 
 .pricing-area .single-pricing-box .single-pricing-thumb img {
     width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Equal-height pricing cards (2D Plans / 3D Model / Elevation) */
+.pricing-area .row > [class*="col-"] {
+    display: flex;
+}
+.pricing-area .single-pricing-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.pricing-area .single-pricing-box .pricing-inner-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    height: 100%;
+}
+.pricing-area .single-pricing-box .single-pricing-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+.pricing-area .single-pricing-box .pricing-plan-list {
+    flex: 1 1 auto;
+}
+.pricing-area .single-pricing-box .pricing-button {
+    margin-top: auto;
 }
 
 .pricing-area .single-pricing-box .single-pricing-content {
